@@ -6,13 +6,13 @@ import (
 	"strings"
 
 	"github.com/appscode/swift/pkg/extpoints"
+	"github.com/tamalsaha/go-oneliners"
 	"golang.org/x/net/context"
 	core "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	clientset "k8s.io/client-go/kubernetes"
 	restclient "k8s.io/client-go/rest"
 	rls "k8s.io/helm/pkg/proto/hapi/services"
-	"github.com/tamalsaha/go-oneliners"
 )
 
 type InClusterConnector struct {

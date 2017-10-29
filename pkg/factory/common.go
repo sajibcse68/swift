@@ -3,9 +3,9 @@ package factory
 import (
 	"time"
 
+	"github.com/tamalsaha/go-oneliners"
 	"google.golang.org/grpc"
 	"k8s.io/apimachinery/pkg/labels"
-	"github.com/tamalsaha/go-oneliners"
 )
 
 const (

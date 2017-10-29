@@ -4,6 +4,7 @@ import (
 	stringz "github.com/appscode/go/strings"
 	proto "github.com/appscode/swift/pkg/apis/swift/v2"
 	"github.com/appscode/swift/pkg/extpoints"
+	"github.com/tamalsaha/go-oneliners"
 	"golang.org/x/net/context"
 	"google.golang.org/grpc/metadata"
 	core "k8s.io/api/core/v1"
@@ -12,7 +13,6 @@ import (
 	hrls "k8s.io/helm/pkg/proto/hapi/release"
 	rls "k8s.io/helm/pkg/proto/hapi/services"
 	"k8s.io/helm/pkg/version"
-	"github.com/tamalsaha/go-oneliners"
 )
 
 type Server struct {
@@ -60,7 +60,7 @@ func (s *Server) SummarizeReleases(ctx context.Context, req *proto.SummarizeRele
 		}
 	}
 
-	oneliners.FILE()
+	oneliners.FILE(listReq)
 	listClient, err := rlc.ListReleases(newContext(), &listReq)
 	if err != nil {
 		oneliners.FILE(err)
