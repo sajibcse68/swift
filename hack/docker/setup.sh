@@ -49,7 +49,6 @@ RUN set -x \
 
 COPY swift /usr/bin/swift
 
-USER nobody:nobody
 ENTRYPOINT ["swift"]
 EOL
     local cmd="docker build -t appscode/$IMG:$TAG ."
