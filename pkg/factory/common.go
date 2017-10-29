@@ -5,6 +5,7 @@ import (
 
 	"google.golang.org/grpc"
 	"k8s.io/apimachinery/pkg/labels"
+	"github.com/tamalsaha/go-oneliners"
 )
 
 const (
@@ -35,6 +36,7 @@ func Connect(target string) (conn *grpc.ClientConn, err error) {
 	}*/
 
 	if conn, err = grpc.Dial(target, opts...); err != nil {
+		oneliners.FILE(err)
 		return nil, err
 	}
 	return conn, nil

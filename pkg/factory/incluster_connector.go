@@ -12,6 +12,7 @@ import (
 	clientset "k8s.io/client-go/kubernetes"
 	restclient "k8s.io/client-go/rest"
 	rls "k8s.io/helm/pkg/proto/hapi/services"
+	"github.com/tamalsaha/go-oneliners"
 )
 
 type InClusterConnector struct {
@@ -34,14 +35,18 @@ func (c *InClusterConnector) Connect(ctx context.Context) (rls.ReleaseServiceCli
 	}
 	client, err := clientset.NewForConfig(config)
 	if err != nil {
+		oneliners.FILE(err)
 		return nil, err
 	}
 	addr, err := c.getTillerAddr(client)
 	if err != nil {
+		oneliners.FILE(err)
 		return nil, err
 	}
+	oneliners.FILE("Found Tiller service", addr)
 	conn, err := Connect(addr)
 	if err != nil {
+		oneliners.FILE(err)
 		return nil, err
 	}
 	return rls.NewReleaseServiceClient(conn), nil

@@ -1,5 +1,5 @@
 hash: 0f767c72577cd3fa762e36315be620fa824d20029efee84b0fb32b333ebb822b
-updated: 2017-10-24T01:09:13.290308433-07:00
+updated: 2017-10-29T16:37:01.71591625-07:00
 imports:
 - name: github.com/appscode/api
   version: 934ee7e989e7b806071b82ba2922438d73806d11
@@ -172,11 +172,13 @@ imports:
 - name: github.com/soheilhy/cmux
   version: bf4a8ede9e87c006fe1d4278c6c7f2b8be1fa84c
 - name: github.com/spf13/cobra
-  version: 7b2c5ac9fc04fc5efafb60700713d4fa609b777b
+  version: b3426bbac13d7110c4d8fce456ea0012f79f3b8b
   subpackages:
   - doc
 - name: github.com/spf13/pflag
   version: e57e3eeb33f795204c1ca35f56c44f83227c6e66
+- name: github.com/tamalsaha/go-oneliners
+  version: 4ca214c0460d9077e49e3ef394785f92408f7699
 - name: github.com/xeipuuv/gojsonpointer
   version: e0fe6f68307607d540ed8eac07a342c33fa1b54a
 - name: github.com/xeipuuv/gojsonreference
@@ -282,7 +284,7 @@ imports:
   - storage/v1
   - storage/v1beta1
 - name: k8s.io/apiextensions-apiserver
-  version: 89b2a556a65053a90552eaed26f810df4a266367
+  version: 5bc0d8f05a92b3a09bcf1a9db442a29c0b7a514d
 - name: k8s.io/apimachinery
   version: 019ae5ada31de202164b118aee88ee2d14075c31
   subpackages:

@@ -12,6 +12,7 @@ import (
 	hrls "k8s.io/helm/pkg/proto/hapi/release"
 	rls "k8s.io/helm/pkg/proto/hapi/services"
 	"k8s.io/helm/pkg/version"
+	"github.com/tamalsaha/go-oneliners"
 )
 
 type Server struct {
@@ -29,6 +30,7 @@ func newContext() context.Context {
 func (s *Server) SummarizeReleases(ctx context.Context, req *proto.SummarizeReleasesRequest) (*proto.SummarizeReleasesResponse, error) {
 	rlc, err := s.ClientFactory.Connect(ctx)
 	if err != nil {
+		oneliners.FILE(err)
 		return nil, err
 	}
 	listReq := rls.ListReleasesRequest{
@@ -58,18 +60,21 @@ func (s *Server) SummarizeReleases(ctx context.Context, req *proto.SummarizeRele
 		}
 	}
 
+	oneliners.FILE()
 	listClient, err := rlc.ListReleases(newContext(), &listReq)
 	if err != nil {
+		oneliners.FILE(err)
 		return nil, err
 	}
 
 	listRes, err := listClient.Recv()
 	if err != nil {
+		oneliners.FILE(err)
 		return nil, err
 	}
 
 	var releases []*proto.ReleaseSummary
-
+	oneliners.FILE()
 	for _, item := range listRes.Releases {
 		releases = append(releases, &proto.ReleaseSummary{
 			Namespace:     item.Namespace,
@@ -80,7 +85,7 @@ func (s *Server) SummarizeReleases(ctx context.Context, req *proto.SummarizeRele
 			ChartMetadata: item.Chart.Metadata,
 		})
 	}
-
+	oneliners.FILE()
 	return &proto.SummarizeReleasesResponse{
 		Releases: releases,
 	}, nil
